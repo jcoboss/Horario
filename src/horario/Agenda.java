@@ -2,17 +2,19 @@ package horario;
 
 import java.util.Arrays;
 import java.util.Collection;
+import java.util.HashSet;
 import java.util.LinkedList;
+import java.util.Objects;
 
 public class Agenda<E,V> {
 
-    protected LinkedList<Agendable<E,V>> agendados;
+    protected HashSet<Agendable<E,V>> agendados;
 
     public Agenda() {
-        agendados=new LinkedList<>();
+        agendados=new HashSet<>();
     }
 
-    public Agenda(LinkedList<Agendable<E,V>> agendados) {
+    public Agenda(HashSet<Agendable<E,V>> agendados) {
         this.agendados = agendados;
     }
     
@@ -59,11 +61,11 @@ public class Agenda<E,V> {
         return estanTodos;
     }
 
-    public LinkedList<Agendable<E,V>> getAgendados() {
+    public HashSet<Agendable<E,V>> getAgendados() {
         return agendados;
     }
 
-    public void setAgendados(LinkedList<Agendable<E,V>> agendados) {
+    public void setAgendados(HashSet<Agendable<E,V>> agendados) {
         this.agendados = agendados;
     }
     
@@ -78,6 +80,7 @@ public class Agenda<E,V> {
     public void clear() {
         agendados.clear();
     }
+
     
     
 }

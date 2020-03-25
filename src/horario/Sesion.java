@@ -2,6 +2,7 @@ package horario;
 
 import java.time.Duration;
 import java.time.LocalDateTime;
+import java.util.Objects;
 
 public abstract class Sesion<E,V>{
 
@@ -48,6 +49,7 @@ public abstract class Sesion<E,V>{
     public void setAgendable(Agendable<E,V> agendable) {
         this.agendable = agendable;
     }
+
     
     
 }

@@ -2,6 +2,7 @@ package horario;
 
 import java.util.Collections;
 import java.util.LinkedList;
+import java.util.Objects;
 
 public abstract class Agendable<E,V> {
 
@@ -73,6 +74,10 @@ public abstract class Agendable<E,V> {
     public void setSesiones(LinkedList<Sesion<E,V>> sesiones) {
         this.sesiones = sesiones;
     }
+
+    
+
+    
 
     
     
