@@ -28,15 +28,17 @@ public class Tramo<E,V> {
         this.sesion=sesion;
     }
 
-    public boolean hayColision(Tramo<E,V> tramo) throws TramoCollisionException {
-        boolean tramoAntesTramo = tramo.getInicio().isBefore(tramo.getFin()) 
-                && (tramo.getFin().isBefore(inicio) || tramo.getFin().isEqual(inicio));
-        
-        boolean tramoDespuesTramo = tramo.getInicio().isBefore(tramo.getFin()) 
-                && (tramo.getInicio().isAfter(fin) || tramo.getInicio().isEqual(fin));
-        
-        if (tramoAntesTramo || tramoDespuesTramo) return false;
-        throw new TramoCollisionException(this,tramo);
+    public boolean hayColision(Tramo<E,V> tramoB) throws TramoCollisionException {
+        boolean tramoAntesTramoB = inicio.isBefore(fin) &&
+                (fin.isBefore(tramoB.getInicio()) || fin.isEqual(tramoB.getInicio())) &&
+                tramoB.getInicio().isBefore(tramoB.getFin());
+              
+       boolean tramoBAntesTramo = tramoB.getInicio().isBefore(tramoB.getFin()) &&
+               (tramoB.getFin().isBefore(inicio) || tramoB.getFin().isEqual(inicio)) &&
+               inicio.isBefore(fin);
+         
+        if (tramoAntesTramoB || tramoBAntesTramo) return false;
+        throw new TramoCollisionException(this,tramoB);
         
     }
     
